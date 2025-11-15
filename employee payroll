@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h> 
+struct Employee
+{
+    int id;
+    char name[50];
+    float basicsalary;
+    float hra; 
+    float ta;  
+    float pf; 
+    float grosssalary;
+    float netsalary;
+};
+void Payroll(struct Employee *emp) 
+{
+     emp->hra = emp->basicsalary * 0.10; 
+    emp->ta = emp->basicsalary * 0.01;  
+    emp->pf = emp->basicsalary * 0.20;  
+    emp->grosssalary = emp->basicsalary + emp->hra + emp->ta;
+ emp->netsalary = emp->grosssalary - emp->pf;
+}
+void displayEmployee(const struct Employee *emp) 
+{
+    printf("\n--- Employee Details ---\n");
+    printf("ID: %d\n", emp->id);
+    printf("Name: %s\n", emp->name);
+    printf("Basic Salary: %.2f\n", emp->basicsalary);
+    printf("HRA: %.2f\n", emp->hra);
+    printf("TA: %.2f\n", emp->ta);
+ printf("PF: %.2f\n", emp->pf);
+    printf("Gross Salary: %.2f\n", emp->grosssalary);
+    printf("Net Salary: %.2f\n", emp->netsalary);
+}
+
+int main()
+{
+    struct Employee emp1;
+    printf("Enter Employee ID: ");
+    scanf("%d", &emp1.id);
+    printf("Enter Employee Name: ");
+    scanf("%s", &emp1.name); 
+    printf("Enter Basic Salary: ");
+    scanf("%f", &emp1.basicsalary);
+    Payroll(&emp1);
+    displayEmployee(&emp1);
+return 0;
+}

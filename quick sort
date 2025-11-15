@@ -1,0 +1,60 @@
+#include <stdio.h>
+void swap(int* a, int* b)
+{
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int partition(int arr[], int lowestval, int highestval) 
+{
+    6
+    int pivotval = arr[highestval];
+    int i = (lowestval - 1); 
+    for (int j = lowestval; j <= highestval - 1; j++) 
+    {
+       if (arr[j] < pivotval) 
+        {
+            i++; 
+            swap(&arr[i], &arr[j]);
+        }
+    }
+    swap(&arr[i + 1], &arr[highestval]);
+    return (i + 1);
+}
+void quickSort(int arr[], int lowestval, int highestval) 
+{
+    if (lowestval < highestval) 
+    {
+     int indexval = partition(arr, lowestval, highestval);
+     quickSort(arr, lowestval, indexval - 1);
+      quickSort(arr, indexval + 1, highestval);
+    }
+}
+void printArray(int arr[], int n) 
+{
+    int i;
+    for (i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+    printf("\n");
+}
+int main() 
+{
+    printf("Student Name: Sreehari B\n");
+    printf("Quick Sort");
+    int size,arr[10];
+    printf("\nEnter the size of array to be sorted:");
+    scanf("%d",&size);
+    printf("___________________________\n");
+    printf("Enter the elemnts of array\n"); 
+    for(int i=0;i<size;i++)
+    {
+        printf("Element%d:",i+1);
+        scanf("%d",&arr[i]);
+    }
+    printf("Original array: ");
+    printArray(arr, size);
+    quickSort(arr, 0, size - 1);
+    printf("Sorted array: ");
+    printArray(arr, size);
+    return 0;
+}

@@ -1,0 +1,21 @@
+#include<stdio.h>
+float average(float a, float b,float c)
+float percent(float average)
+{
+    float average=((a+b+c)/3);
+    float percent=average/3;
+    return average;
+    return percent;
+}
+int main()
+{
+    float a,b,c,avg,per;
+    printf("enter the marks of three subjects");
+    scanf("%f%f%f",&a,&b,&c);
+    avg=average(a,b,c);
+    printf("Avergae marks obtained%f ",avg);
+    per=percent(avg);
+    printf("Percent obtained%f ",per);
+    return 0;
+    
+}

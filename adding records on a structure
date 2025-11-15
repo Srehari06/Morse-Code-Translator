@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+ {
+    
+    
+    FILE* p;
+
+     char d[50] = "Hello";
+   
+    p = fopen("file.txt", "w");
+
+    if(p==NULL)
+    {
+
+    printf("The file is not opened.");
+    }
+    else
+    {
+        printf("The file is now opened.\n");
+        fputs(d, p);
+        fputs("\n", p);
+
+        
+        fclose(p);
+        printf("Data successfully written in file "
+               "file.txt\n");
+        printf("The file is now closed.");
+    }
+    return 0;
+}
